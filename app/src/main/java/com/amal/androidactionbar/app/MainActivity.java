@@ -58,9 +58,11 @@ public class MainActivity extends Activity {
 
                 Bundle args = new Bundle();
                 args.putString("Menu", "You pressed done button.");
-                Fragment detail = new TextFragment();
+                TextFragment detail;
+                detail = new TextFragment();
                 detail.setArguments(args);
-                FragmentManager fragmentManager = getFragmentManager();
+                FragmentManager fragmentManager;
+                fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.content_frame, detail).commit();
 
                 return true;
