@@ -1,28 +1,23 @@
 package com.amal.androidactionbar.app;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.support.v4.app.FragmentActivity;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Fragment main = new MainFragment();
+        MainFragment main = new MainFragment();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, main);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -58,12 +53,10 @@ public class MainActivity extends Activity {
 
                 Bundle args = new Bundle();
                 args.putString("Menu", "You pressed done button.");
-                TextFragment detail;
-                detail = new TextFragment();
+                TextFragment detail = new TextFragment();
                 detail.setArguments(args);
-                FragmentManager fragmentManager;
-                fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, detail).commit();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.action_done,detail).commit();
 
                 return true;
             case R.id.action_contacts:
