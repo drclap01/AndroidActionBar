@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 TextFragment detail = new TextFragment();
                 detail.setArguments(args);
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.action_done,detail).commit();
+                fragmentManager.beginTransaction().replace(R.id.content_frame,detail).commit();
 
                 return true;
             case R.id.action_contacts:
